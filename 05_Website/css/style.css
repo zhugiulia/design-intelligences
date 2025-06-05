@@ -1,0 +1,2460 @@
+
+/* Ensure cards in #who-we-are and #apprentices rows are flex and cards fill height */
+#who-we-are .row.g-4 > div,
+#apprentices .row.g-4 > div {
+  display: flex;
+}
+
+#who-we-are .card,
+#apprentices .card {
+  height: 100%;
+}
+
+/* === Outbound arrow icon for course cards === */
+.event-card.course-event-card .event-card-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  z-index: 2;
+}
+
+.event-card.course-event-card:hover .event-card-icon {
+  background-color: #f5f5f5;
+}
+
+.event-card.course-event-card .event-card-icon .arrow-icon {
+  font-size: 20px;
+}
+/* Sidebar custom navigation link override (for news.html sidebar) */
+/* Force bold appearance for sidebar nav links */
+.sidebar-nav-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.sidebar-nav-link:hover {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* Sidebar navigation link styles for news.html sidebar */
+#news-sidebar-wrapper .nav-link {
+  text-decoration: none;
+}
+
+#news-sidebar-wrapper .nav-link:hover {
+  text-decoration: underline;
+  font-weight: 900;
+}
+
+/* Hamburger icon color swap for dark mode */
+.switch-hamburger-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0,0,0,0.7)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+body.dark-mode .switch-hamburger-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* ==========================================================================
+   1. Reset e font
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Moon Bold';
+  src: url('../fonts/Moon Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+body {
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #F5F5F5;
+  color: #1a1a1a;
+}
+
+/* ==========================================================================
+   2. Layout di base e struttura generale
+   ========================================================================== */
+
+.container-fluid {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.main-content {
+  padding-top: 80px;
+}
+
+/* Headings */
+h1,
+h2,
+h3 {
+  font-family: 'Moon Bold', sans-serif;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 25px;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 16px;
+}
+
+.caption {
+  font-size: 12px;
+  font-family: 'Karla', sans-serif;
+  line-height: 1.4;
+}
+
+.team-member-name {
+  color: #1a1a1a;
+}
+
+body.dark-mode .team-member-name {
+  color: #F5F5F5;
+}
+
+/* ==========================================================================
+   3. Navbar e navigazione
+   ========================================================================== */
+
+.custom-navbar {
+  background-color: rgba(245, 245, 245, 0.667);
+  backdrop-filter: blur(8px);
+  padding: 10px 40px;
+  transition: background-color 0.3s ease-in-out;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+body.dark-mode .custom-navbar {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.custom-navbar .nav-link {
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+  color: #1a1a1a;
+  margin: 0 10px;
+  font-weight: 400;
+}
+
+.custom-navbar .nav-link:hover {
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.custom-navbar .nav-link.active {
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+body.dark-mode .custom-navbar .nav-link {
+  color: #F5F5F5;
+  font-weight: 400;
+}
+
+body.dark-mode .custom-navbar .nav-link:hover {
+  font-weight: 700;
+}
+
+body.dark-mode .custom-navbar .mode-icon {
+  color: #F5F5F5;
+}
+
+/* .slash-nav is unused, can be commented out or removed */
+/*
+.slash-nav .nav-link {
+  font-size: 16px;
+  font-family: 'Karla', sans-serif;
+  color: #1a1a1a;
+  line-height: 1.6;
+  padding: 5px 0;
+  text-decoration: none;
+  margin-bottom: 0.6rem;
+}
+.slash-nav .nav-link:hover {
+  text-decoration: underline;
+  font-weight: 700;
+}
+*/
+
+/* ==========================================================================
+   4. Sidebar
+   ========================================================================== */
+
+.sidebar-custom {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0);
+  border-right: 1px solid rgba(0, 0, 0, 0.0);
+  z-index: 1000;
+  pointer-events: auto;
+}
+
+.sidebar-custom .logo {
+  align-self: flex-start;
+}
+
+.nav-center {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sidebar-custom .nav-link {
+  font-size: 16px;
+  font-family: 'Karla', sans-serif;
+  color: #1a1a1a;
+  line-height: 1.6;
+  padding: 5px 0;
+  text-decoration: none;
+  margin-bottom: 0.6rem;
+}
+
+.sidebar-custom .nav-link:hover {
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.sidebar-custom small {
+  font-size: 12px;
+  opacity: 1;
+  text-align: left;
+  padding-top: 15px;
+}
+
+/* Sidebar full-content visibility */
+.sidebar-full-content {
+  transition: height 0.3s ease;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.sidebar-full-content .nav-link {
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.sidebar-full-content.visible {
+  pointer-events: auto;
+  z-index: 1000;
+  position: relative;
+}
+
+.sidebar-full-content.visible .nav-link {
+  opacity: 1;
+}
+
+.sidebar-full-content.hide-under-footer,
+.sidebar-full-content.sidebar-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  position: relative;
+  z-index: 0 !important;
+}
+
+.sidebar-short {
+  height: 80vh !important;
+}
+
+/* ==========================================================================
+   5. Hero section
+   ========================================================================== */
+
+.hero-section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 80px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+@media (max-width: 767.98px) {
+  .hero-video {
+    width: 100vw;
+    height: auto;
+    max-height: 80vh;
+    object-fit: cover;
+    margin-top: 20px;
+  }
+}
+
+/* ==========================================================================
+   6. Search engine (inclusa animazione SVG)
+   ========================================================================== */
+
+.search-wrapper {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.search {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  overflow: hidden;
+  transition: width 0.3s ease;
+}
+
+.search.open {
+  width: 240px;
+}
+
+.search input[type="search"] {
+  all: unset;
+  position: absolute;
+  left: 36px;
+  width: calc(100% - 72px);
+  height: 100%;
+  font-family: 'Karla', sans-serif;
+  font-size: 1rem;
+  color: #1a1a1a;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.search.open input[type="search"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.search .search-icon {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  font-size: 24px;
+  color: #1a1a1a;
+  z-index: 4;
+
+  user-select: none;
+  transition: color 0.2s;
+}
+
+.search .clear-search {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+
+  display: none;
+  z-index: 4;
+  font-size: 24px;
+  color: #1a1a1a;
+  line-height: 1;
+}
+
+.search.open .clear-search {
+  display: block;
+  font-size: 24px;
+  color: #1a1a1a;
+}
+
+.search.open .clear-search:hover {
+  color: #000;
+  transform: scale(1.1);
+}
+
+body.dark-mode .search.open .clear-search,
+body.dark-mode .search .search-icon {
+  color: #F5F5F5;
+}
+
+.search svg {
+  height: 24px;
+  top: 6px;
+  left: 6px;
+  position: absolute;
+  z-index: 3;
+}
+
+.search .material-symbols-outlined {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  font-size: 24px;
+  color: #1a1a1a;
+  z-index: 4;
+
+  user-select: none;
+  transition: color 0.2s;
+}
+
+body.dark-mode .search .material-symbols-outlined {
+  color: #F5F5F5;
+}
+
+.search input[type="search"]:focus {
+  cursor: auto;
+  outline: none;
+}
+
+.search input[type="search"]::selection {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.search .path {
+  stroke-dasharray: 363 961;
+  stroke-dashoffset: 0;
+  stroke: #1a1a1a;
+  stroke-width: 10;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease;
+}
+
+.search input[type="search"]:focus+svg .path {
+  stroke-dasharray: 961 363;
+  stroke-dashoffset: -363;
+}
+
+body.dark-mode .search .path {
+  stroke: #F5F5F5;
+}
+
+/* ==========================================================================
+   7. Sezioni principali (Section spacing, card, contenuti)
+   ========================================================================== */
+
+.section-spacing {
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+
+.event-card {
+  position: relative;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #eee;
+  margin-bottom: 30px;
+}
+
+.event-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.event-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: rgba(245, 245, 245, 0.5);
+  backdrop-filter: blur(8px);
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  height: auto;
+  min-height: 40%;
+  transition: all 0.5s ease-in-out;
+}
+
+.event-card:hover .event-card-content {
+  display: flex;
+}
+
+.event-card-content h3 {
+  margin-bottom: 4px;
+}
+
+.event-meta {
+  color: #1a1a1a;
+  font-family: "Karla";
+  font-size: 14px;
+  font-weight: 400;
+  padding-top: 0px;
+  margin-top: -4px;
+}
+
+.text-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-family: 'Karla';
+  color: #1a1a1a;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+
+  transition: font-weight 0.3s ease;
+}
+
+.text-btn:hover {
+  font-weight: 700;
+}
+
+.big-btn {
+  display: inline-flex;
+  height: 60px;
+  padding: 20px 28px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border: 1px solid #1a1a1a;
+  background-color: #1a1a1a;
+  color: #fff;
+  font-family: 'Karla', sans-serif;
+  transition: all 0.3s ease-out;
+  text-decoration: none;
+  width: auto;
+}
+
+.big-btn:hover {
+  background-color: #E8E8E8;
+  color: #1a1a1a;
+}
+
+.arrow-icon {
+  font-size: 20px;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease-out;
+}
+
+.big-btn:hover .arrow-icon,
+.text-btn:hover .arrow-icon {
+  transform: rotate(0deg);
+}
+
+#typewriter {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#typewriter.visible {
+  opacity: 1;
+}
+
+/* Team Card effect */
+
+/* ==========================================================================
+   8. Footer
+   ========================================================================== */
+
+#footer {
+  position: relative;
+  z-index: 1000;
+}
+
+.footer-dark {
+  background-color: #1a1a1a;
+}
+
+.footer-divider {
+  display: none;
+  margin-bottom: 0;
+}
+
+body.dark-mode .footer-divider {
+  display: block;
+  border-top: 1px solid #F5F5F5;
+  margin-bottom: -1px;
+}
+
+footer a,
+footer button {
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   9. Modalità dark (tema scuro)
+   ========================================================================== */
+
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+body.dark-mode .sidebar-custom .nav-link {
+  color: #F5F5F5 !important;
+}
+
+body.dark-mode .sidebar-custom .hamburger {
+  color: #F5F5F5 !important;
+}
+
+body.dark-mode .big-btn {
+  background-color: #F5F5F5;
+  color: #1a1a1a;
+  border-color: #F5F5F5;
+}
+
+body.dark-mode .big-btn:hover {
+  background-color: #E8E8E8;
+  color: #1a1a1a;
+}
+
+body.dark-mode .event-card {
+  border: 1px solid #333;
+}
+
+body.dark-mode .event-card-content {
+  background: rgba(30, 30, 30, 0.7);
+  color: #F5F5F5;
+}
+
+body.dark-mode .event-meta {
+  color: #E0E0E0;
+}
+
+body.dark-mode .text-btn {
+  color: #F5F5F5;
+}
+
+body.dark-mode p.custom-paragraph {
+  color: #F5F5F5;
+}
+
+/* ==========================================================================
+   10. Responsive design (media queries)
+   ========================================================================== */
+
+@media (max-width: 991.98px) {
+  h2 {
+    font-size: 28px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  .event-card {
+    height: auto;
+    flex-direction: column;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  .event-card img {
+    height: 100%;
+
+  }
+
+  .event-card-content {
+    position: relative !important;
+    display: flex !important;
+    backdrop-filter: none;
+    background: rgba(245, 245, 245, 0.95);
+    padding: 16px;
+    margin-top: 10px;
+    transition: none;
+  }
+
+  .event-card:hover .event-card-content {
+    display: flex !important;
+  }
+
+  .event-card a,
+  .event-card a:hover,
+  .event-card a:focus,
+  .event-card a:active {
+    text-decoration: none !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+
+  /* Remove text underlines and outlines inside .event-card links on mobile */
+  .event-card a,
+  .event-card a:visited,
+  .event-card a:hover,
+  .event-card a:focus,
+  .event-card a:active {
+    text-decoration: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Remove text-decoration from all elements inside .event-card except the Read more button's underline */
+  .event-card * {
+    text-decoration: none !important;
+  }
+
+  .event-card .text-btn u {
+    text-decoration: underline !important;
+  }
+
+  .event-card .material-symbols-outlined {
+    text-decoration: none !important;
+  }
+
+  /* Explicitly target all possible event-card links and their descendants */
+  .event-card a,
+  .event-card a *,
+  .event-card-link,
+  .event-card-link *,
+  .event-card-link:link,
+  .event-card-link:visited,
+  .event-card-link:hover,
+  .event-card-link:focus,
+  .event-card-link:active {
+    text-decoration: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  .sidebar-custom {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 15px 20px;
+    backdrop-filter: blur(8px);
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .sidebar-custom .logo {
+    width: 130px;
+  }
+
+  .nav-center {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+    background-color: transparent;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    align-items: flex-start;
+    padding-left: 20px;
+  }
+
+  body.dark-mode .nav-center {
+    background-color: #1a1a1a;
+  }
+
+  body.dark-mode .nav-center .nav-link {
+    color: #F5F5F5;
+  }
+
+  .nav-center.open {
+    display: flex;
+  }
+
+  .sidebar-custom.open .nav-center {
+    display: flex;
+  }
+
+  .nav-center .search-wrapper {
+    background-color: transparent !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 20px !important;
+    align-self: flex-start;
+    justify-content: flex-start;
+    margin-left: 20px !important;
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
+    margin-top: 10px;
+    display: flex !important;
+    flex-direction: row;
+    padding-left: 0 !important;
+  }
+
+  .nav-center .search {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    justify-content: flex-start;
+  }
+
+  .search-wrapper.ms-3 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    background-color: transparent !important;
+  }
+
+  .search {
+    margin-left: 0 !important;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-right: 0 !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 24px;
+
+    color: inherit;
+    z-index: 1001;
+    background: none;
+    border: none;
+    position: relative;
+  }
+
+  .main-content {
+    padding-left: 0;
+    padding-top: 80px;
+  }
+
+  .section-spacing {
+    margin-top: 20px;
+  }
+
+  .col-3 {
+    display: none;
+  }
+
+  .event-card {
+    width: 100%;
+    height: auto;
+  }
+
+  .event-card img {
+    height: auto;
+  }
+
+  .section-spacing .row>.col-2,
+  .section-spacing .row>.col-3 {
+    display: none;
+  }
+
+  .section-spacing .row>.col-8,
+  .section-spacing .row>.col-9 {
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .row-cols-1 .col {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .mode-toggle-mobile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1001;
+    padding-left: 10px;
+  }
+
+  .timestamp-mobile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1001;
+    padding: 10px 16px;
+    background-color: rgba(255, 255, 255, 0.667);
+    backdrop-filter: blur(8px);
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  body.dark-mode .timestamp-mobile {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+
+  .timestamp-mobile small {
+    font-size: 12px;
+    opacity: 0.7;
+    font-family: 'Karla', sans-serif;
+  }
+
+  .timestamp-mobile .material-symbols-outlined {
+    font-size: 20px;
+
+  }
+
+  body.dark-mode .hamburger {
+    color: #ffffff !important;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.8));
+  }
+}
+
+@media (max-width: 575.98px) {
+  .big-btn {
+    height: 48px;
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+
+  .arrow-icon {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 992px) {
+  .hero-section .section-spacing {
+    padding-top: 20px;
+  }
+}
+
+.timestamp-desktop {
+  display: flex;
+  position: fixed;
+  bottom: 10px;
+  left: 40px;
+  font-size: 12px;
+  opacity: 0.6;
+  color: #1a1a1a;
+  z-index: 1001;
+  font-family: 'Karla', sans-serif;
+  background-color: transparent;
+  gap: 10px;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+body.dark-mode .timestamp-desktop {
+  color: #F5F5F5;
+  display: flex;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.mode-icon {
+  font-size: 20px;
+
+  color: #aaa;
+  transition: color 0.3s ease;
+}
+
+.mode-icon.active {
+  color: #1a1a1a;
+}
+
+body.dark-mode .mode-icon.active {
+  color: #F5F5F5;
+}
+
+.switch-who-info {
+  width: 100%;
+  height: auto;
+  content: url('assets/Who_info.svg');
+}
+
+body.dark-mode .switch-who-info {
+  content: url('assets/white_Who_info.svg');
+}
+
+p.custom-paragraph {
+  color: #1a1a1a;
+}
+
+/* Hamburger hidden by default, shown in responsive */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  font-weight: bold;
+
+  background: none;
+  border: none;
+  padding: 10px;
+  z-index: 1001;
+}
+
+/* Remove unused/duplicate/erroneous rules */
+/* .slash-nav, .sidebar-full-content.footer-hidden, .sidebar-full-content.visible .nav-link (duplicate), misplaced footer z-index, etc. are omitted for clarity */
+@font-face {
+  font-family: 'Moon Bold';
+  src: url('../fonts/Moon Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+.media-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.media-container video,
+.media-container .img-hover {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.media-container .img-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.media-container:hover .img-hover {
+  opacity: 1;
+}
+
+.media-container:hover video {
+  opacity: 0;
+}
+
+/* Team member name color */
+.team-member-name {
+  color: #1a1a1a;
+}
+
+body.dark-mode .team-member-name {
+  color: #F5F5F5;
+}
+
+/* New CSS for sidebar scroll behavior */
+.sidebar-full-content.hide-under-footer {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  position: relative;
+  z-index: 0 !important;
+}
+
+.sidebar-short {
+  height: 80vh !important;
+}
+
+.sidebar-full-content {
+  transition: height 0.3s ease;
+}
+
+
+@font-face {
+  font-family: 'Karla';
+  src: url('../fonts/Karla-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Karla';
+  src: url('../fonts/Karla-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #F5F5F5;
+  color: #1a1a1a;
+}
+
+.sidebar-custom {
+  position: fixed;
+  /* make it sticky */
+  top: 0;
+  left: 0;
+  /* width: 266px; */
+  height: 100vh;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0);
+  border-right: 1px solid rgba(0, 0, 0, 0.0);
+  /* subtle border */
+  z-index: 1000;
+  /* stay above content/video */
+  pointer-events: auto;
+}
+
+.sidebar-custom .logo {
+  align-self: flex-start;
+}
+
+
+.nav-center {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.slash-nav .nav-link,
+.sidebar-custom .nav-link {
+  font-size: 16px;
+  font-family: 'Karla', sans-serif;
+  color: #1a1a1a;
+  line-height: 1.6;
+  padding: 5px 0;
+  text-decoration: none;
+  margin-bottom: 0.6rem;
+}
+
+.slash-nav .nav-link:hover,
+.sidebar-custom .nav-link:hover {
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.sidebar-custom small {
+  font-size: 12px;
+  opacity: 1;
+  text-align: left;
+  padding-top: 15px;
+}
+
+/* Make sure main content doesn't get hidden behind sidebar */
+.main-content {
+  padding-top: 80px;
+}
+
+/* Custom Navbar Styles */
+.custom-navbar {
+  background-color: rgba(245, 245, 245, 0.667);
+  backdrop-filter: blur(8px);
+  padding: 10px 40px;
+  transition: background-color 0.3s ease-in-out;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+body.dark-mode .custom-navbar {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.custom-navbar .nav-link {
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+  color: #1a1a1a;
+  margin: 0 10px;
+  font-weight: 400;
+}
+
+.custom-navbar .nav-link:hover {
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+body.dark-mode .custom-navbar .nav-link {
+  color: #F5F5F5;
+  font-family: 'Karla', sans-serif;
+  font-weight: 400;
+}
+
+body.dark-mode .custom-navbar .nav-link:hover {
+  font-weight: 700;
+}
+
+body.dark-mode .custom-navbar .mode-icon {
+  color: #F5F5F5;
+}
+
+/* New Hero Section */
+/* Hero Section - Fullscreen Video */
+.hero-section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 80px;
+  /* height of navbar */
+  /* margin: 0; */
+  /* This line is now commented out */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Responsive adjustment for hero-video */
+@media (max-width: 768px) {
+  .hero-video {
+    margin-top: 100px;
+    margin-bottom: 10px;
+  }
+}
+
+/* Responsive Sidebar for Mobile */
+@media (max-width: 767.98px) {
+  .sidebar-custom {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 15px 20px;
+    backdrop-filter: blur(8px);
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .sidebar-custom .logo {
+    width: 130px;
+  }
+
+  .nav-center {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+    /* background-color: #F5F5F5;  Removed to avoid orange/colored space */
+    background-color: transparent;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    /* Added for left alignment consistency */
+    align-items: flex-start;
+    padding-left: 20px;
+  }
+
+  body.dark-mode .nav-center {
+    background-color: #1a1a1a;
+  }
+
+  body.dark-mode .nav-center .nav-link {
+    color: #F5F5F5;
+  }
+
+  .nav-center.open {
+    display: flex;
+    /* Added this line */
+  }
+
+  .sidebar-custom.open .nav-center {
+    display: flex;
+  }
+
+  .nav-center .search-wrapper {
+    background-color: transparent !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 20px !important;
+    justify-content: flex-start !important;
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
+    margin-top: 10px;
+    display: flex !important;
+    flex-direction: row;
+    /* Remove any left padding/margin that might push content */
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  .nav-center .search {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 24px;
+
+    color: inherit;
+    z-index: 1001;
+    background: none;
+    border: none;
+  }
+
+  .main-content {
+    padding-left: 0;
+    padding-top: 80px;
+  }
+
+  .section-spacing {
+    margin-top: 50px;
+    margin-bottom: 0;
+  }
+
+  .col-3 {
+    display: none;
+  }
+
+  .event-card {
+    width: 100%;
+    height: auto;
+  }
+
+  .event-card img {
+    height: auto;
+  }
+
+  /* Section 2 full width on mobile */
+  .section-spacing .row>.col-2,
+  .section-spacing .row>.col-3 {
+    display: none;
+  }
+
+  .section-spacing .row>.col-8,
+  .section-spacing .row>.col-9 {
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  /* Card container responsiveness */
+  .row-cols-1 .col {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Default hidden hamburger icon */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  font-weight: bold;
+
+  background: none;
+  border: none;
+  padding: 10px;
+  z-index: 1001;
+}
+
+@media (max-width: 767.98px) {
+  .hamburger {
+    display: block;
+    position: relative;
+    z-index: 1001;
+  }
+}
+
+/* Dark mode hamburger color */
+body.dark-mode .hamburger {
+  color: #ffffff !important;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.6));
+}
+
+
+/* Desktop timestamp styling */
+.timestamp-desktop {
+  display: flex;
+  position: fixed;
+  bottom: 10px;
+  left: 40px;
+  font-size: 12px;
+  opacity: 0.6;
+  color: #1a1a1a;
+  z-index: 1001;
+  font-family: 'Karla', sans-serif;
+  background-color: transparent;
+  gap: 10px;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+body.dark-mode .timestamp-desktop {
+  color: #F5F5F5;
+  display: flex;
+}
+
+/* === Custom Circular Cursor === */
+.custom-cursor {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.7);
+  filter: invert(1);
+  border: 2px solid #1a1a1a;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: transform 0.3s ease;
+  mix-blend-mode: difference;
+}
+
+.custom-cursor.hover {
+  transform: translate(-50%, -50%) scale(1.5);
+  background-color: rgba(0, 0, 0, 1);
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+/* Headings use Moon Bold */
+h1,
+h2,
+h3 {
+  font-family: 'Moon Bold', sans-serif;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 25px;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.event-card-content h3 {
+  margin-bottom: 4px;
+}
+
+.section-spacing {
+  margin-top: 30px;
+}
+
+.big-btn {
+  display: inline-flex;
+  height: 60px;
+  padding: 20px 28px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border: 1a1a1a solid #1a1a1a;
+  border: 1px solid #1a1a1a;
+  background-color: #1a1a1a;
+  color: #fff;
+  font-family: 'Karla', sans-serif;
+  transition: all 0.3s ease-out;
+  text-decoration: none;
+  width: auto;
+  /* ✅ ensures it hugs the content */
+}
+
+.big-btn:hover {
+  background-color: #E8E8E8;
+  color: #1a1a1a;
+}
+
+@media (max-width: 991.98px) {
+  h2 {
+    font-size: 28px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}
+
+p {
+  font-size: 16px;
+}
+
+.section-spacing {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+/* Unified arrow icon style */
+.arrow-icon {
+  font-size: 20px;
+  transform: rotate(45deg);
+  /* top-right ↗ */
+  transition: transform 0.3s ease-out;
+}
+
+.big-btn:hover .arrow-icon,
+.text-btn:hover .arrow-icon {
+  transform: rotate(0deg);
+  /* straight right → */
+}
+
+.sidebar-full-content {
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.sidebar-full-content .nav-link {
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.sidebar-full-content.visible {
+  pointer-events: auto;
+  z-index: 1000;
+  position: relative;
+}
+
+.sidebar-full-content.visible .nav-link {
+  opacity: 1;
+}
+
+/* Sidebar short height override */
+.sidebar-full-content.sidebar-short {
+  height: 80vh !important;
+  transition: height 0.3s ease;
+}
+
+@media (max-width: 767.98px) {
+  .section-spacing {
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  .hero-section .section-spacing {
+    padding-top: 20px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .big-btn {
+    height: 48px;
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+
+  .arrow-icon {
+    font-size: 18px;
+  }
+}
+
+/* === Event Card Styles === */
+.event-card {
+  position: relative;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #eee;
+  margin-bottom: 30px;
+}
+
+.event-card img {
+  height: 480px;
+  object-fit: cover;
+  width: 100%;
+  display: block;
+}
+
+.event-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: rgba(245, 245, 245, 0.5);
+  backdrop-filter: blur(8px);
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  height: auto;
+  min-height: 40%;
+  transition: all 0.5s ease-in-out;
+}
+
+.event-card:hover .event-card-content {
+  display: flex;
+}
+
+/* Event meta and text styles */
+.event-meta {
+  color: #1a1a1a;
+  font-family: "Karla";
+  font-size: 14px;
+  font-weight: 400;
+  padding-top: 0px;
+  margin-top: -4px;
+}
+
+.text-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-family: 'Karla';
+  color: #1a1a1a;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+
+  transition: font-weight 0.3s ease;
+}
+
+.text-btn:hover {
+  font-weight: 700;
+}
+
+/* .text-btn .arrow-icon and hover merged with .arrow-icon rules above */
+
+@media (max-width: 991.98px) {
+  .event-card {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .event-card img {
+    height: auto;
+  }
+
+  .event-card-content {
+    position: relative !important;
+    display: flex !important;
+    backdrop-filter: none;
+    background: rgba(245, 245, 245, 0.95);
+    padding: 16px;
+    margin-top: 10px;
+    transition: none;
+  }
+
+  .event-card:hover .event-card-content {
+    display: flex !important;
+  }
+}
+
+#typewriter {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#typewriter.visible {
+  opacity: 1;
+}
+
+.caption {
+  font-size: 12px;
+  font-family: 'Karla', sans-serif;
+  line-height: 1.4;
+}
+
+/* Icone modalità attiva/inattiva */
+/* Mode icon color rules */
+/* Mode icon color rules */
+
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+@media (max-width: 767.98px) {
+  .mode-toggle-mobile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1001;
+    padding-left: 10px;
+  }
+}
+
+/* Dark mode styles */
+body.dark-mode .sidebar-custom .nav-link {
+  color: white !important;
+}
+
+body.dark-mode .sidebar-custom .hamburger {
+  color: white !important;
+}
+
+body.dark-mode .big-btn {
+  background-color: #F5F5F5;
+  color: #1a1a1a;
+  border-color: #F5F5F5;
+}
+
+body.dark-mode .big-btn:hover {
+  background-color: #E8E8E8;
+  color: #1a1a1a;
+}
+
+/* Dark mode fix for sidebar text and hamburger */
+body.dark-mode .sidebar-custom .nav-link {
+  color: #F5F5F5 !important;
+}
+
+body.dark-mode .sidebar-custom .hamburger {
+  color: #F5F5F5 !important;
+}
+
+body.dark-mode .event-card {
+  border: 1px solid #333;
+  /* oppure 'none' se vuoi toglierlo del tutto */
+}
+
+/* Dark mode adjustments for event card content and meta */
+body.dark-mode .event-card-content {
+  background: rgba(30, 30, 30, 0.7);
+  /* soft dark background */
+  color: #F5F5F5;
+}
+
+body.dark-mode .event-meta {
+  color: #E0E0E0;
+}
+
+body.dark-mode .text-btn {
+  color: #F5F5F5;
+}
+
+.footer-dark {
+  background-color: #1a1a1a;
+}
+
+/* Footer divider styles for dark mode */
+.footer-divider {
+  display: none;
+  margin-bottom: 0;
+}
+
+body.dark-mode .footer-divider {
+  display: block;
+  border-top: 1px solid #F5F5F5;
+  margin-bottom: -1px;
+}
+
+footer a,
+footer button {
+  position: relative;
+  z-index: 1;
+}
+
+body.footer-visible footer {
+  position: relative;
+  z-index: 10;
+}
+
+.sidebar-full-content.footer-hidden {
+  display: none !important;
+}
+
+.sidebar-full-content.sidebar-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.switch-who-info {
+  width: 100%;
+  height: auto;
+  content: url('assets/Who_info.svg');
+}
+
+body.dark-mode .switch-who-info {
+  content: url('assets/white_Who_info.svg');
+}
+
+/* Paragraph color style for light and dark mode */
+p.custom-paragraph {
+  color: #1a1a1a;
+}
+
+body.dark-mode p.custom-paragraph {
+  color: #F5F5F5;
+}
+
+/* Team Card effect */
+.media-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.media-container video,
+.media-container .img-hover {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.media-container .img-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  z-index: 2;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+}
+
+.media-container:hover .img-hover {
+  opacity: 1;
+}
+
+.media-container:hover video {
+  opacity: 0;
+}
+
+@media (max-width: 767.98px) {
+  .navbar form {
+    display: none;
+  }
+
+  .search {
+    margin-left: 0 !important;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-right: 0 !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+  }
+}
+
+/* Search wrapper default: align right on desktop */
+.search-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  /* No margin-left: auto or text-align: right here */
+}
+
+@media (max-width: 767.98px) {
+  .nav-center .search-wrapper {
+    background-color: transparent !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 20px !important;
+    /* Align search-wrapper perfectly with left margin */
+    align-self: flex-start;
+    justify-content: flex-start;
+    margin-left: 20px !important;
+    /* Adjust for alignment */
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
+    margin-top: 10px;
+    display: flex !important;
+    flex-direction: row;
+    /* Remove any left padding/margin that might push content */
+    padding-left: 0 !important;
+  }
+
+  .nav-center .search {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    justify-content: flex-start;
+  }
+
+  .search-wrapper.ms-3 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    background-color: transparent !important;
+  }
+
+  /* Ensure .search has transparent background and no box-shadow on mobile */
+  .search {
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+}
+
+
+/* === Animated Search Input (CodePen style, black/white theme) === */
+.search svg {
+  height: 24px;
+  top: 6px;
+  left: 6px;
+  position: absolute;
+  z-index: 3;
+}
+
+.search .material-symbols-outlined {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  font-size: 24px;
+  color: #1a1a1a;
+  z-index: 4;
+
+  user-select: none;
+  transition: color 0.2s;
+}
+
+body.dark-mode .search .material-symbols-outlined {
+  color: #F5F5F5;
+}
+
+.search input[type="search"]:focus {
+  cursor: auto;
+  outline: none;
+}
+
+.search input[type="search"]::selection {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.search .path {
+  stroke-dasharray: 363 961;
+  stroke-dashoffset: 0;
+  stroke: #1a1a1a;
+  stroke-width: 10;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease;
+}
+
+.search input[type="search"]:focus+svg {
+  transform: translate3d(0, 0, 0);
+}
+
+.search input[type="search"]:focus+svg .path {
+  stroke-dasharray: 961 363;
+  stroke-dashoffset: -363;
+}
+
+
+
+body.dark-mode .search .path {
+  stroke: #F5F5F5;
+}
+
+.container-fluid {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* === Navbar fade-in animation === */
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.navbar-fade-in {
+  animation: fadeInNavbar 1s ease forwards;
+}
+
+@keyframes fadeInNavbar {
+  from {
+    transform: translateY(-40px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.search svg {
+  height: 36px;
+  top: 4px;
+  left: 0;
+  position: absolute;
+}
+
+@media (max-width: 767.98px) {
+  .timestamp-mobile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1001;
+    padding: 10px 16px;
+    backdrop-filter: blur(8px);
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .timestamp-mobile small {
+    font-size: 12px;
+    font-family: 'Karla', sans-serif;
+  }
+
+  .timestamp-mobile .material-symbols-outlined {
+    font-size: 20px;
+
+  }
+}
+
+
+/* === CONSOLIDATED MODE ICON & TIMESTAMP RULES (dark mode overwrite at end) === */
+/* === MODE ICON & TIMESTAMP DARK MODE APPEARANCE (rules placed at end for precedence) === */
+.mode-icon.light,
+.mode-icon.dark {
+  color: #aaa;
+}
+
+.mode-icon.light.active {
+  color: #1a1a1a;
+}
+
+/* Ensure dark mode icon is bright white and fully opaque (placed at end for precedence) */
+.mode-icon.dark.active {
+  color: #ffffff;
+  opacity: 1;
+}
+
+body.dark-mode .mode-icon.light,
+body.dark-mode .mode-icon.dark {
+  color: #aaa;
+}
+
+body.dark-mode .mode-icon.light.active {
+  color: #aaa;
+}
+
+/* Remove duplicate body.dark-mode .mode-icon.dark.active (now handled above) */
+
+.timestamp-desktop small,
+.timestamp-mobile small {
+  color: #1a1a1a;
+}
+
+body.dark-mode .timestamp-desktop small,
+body.dark-mode .timestamp-mobile small,
+body.dark-mode .timestamp-desktop small.text-muted,
+body.dark-mode .timestamp-mobile small.text-muted {
+  color: #ffffff;
+  opacity: 1;
+}
+
+/* Rimuovi effetti visivi sperimentali */
+.timestamp-desktop,
+.timestamp-mobile,
+.timestamp-mobile .material-symbols-outlined,
+.timestamp-desktop .material-symbols-outlined {
+  mix-blend-mode: unset;
+  text-shadow: none;
+  filter: none;
+}
+
+@media (max-width: 767.98px) {
+  body.dark-mode .hamburger {
+    color: #ffffff !important;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.8));
+  }
+}
+
+@media (max-width: 767.98px) {
+  body.dark-mode .hamburger {
+    color: #ffffff !important;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.8));
+  }
+}
+
+@media (max-width: 767.98px) {
+  body.dark-mode .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--bs-navbar-toggler-border-radius, 0.375rem);
+  }
+}
+
+/* Custom timestamp color handling */
+/* Timestamp time (default and dark mode override) */
+.timestamp-time {
+  color: #1a1a1a;
+  opacity: 1;
+  font-size: 12px;
+  font-family: 'Karla', sans-serif;
+}
+
+/* Place dark mode override at end for precedence */
+body.dark-mode .timestamp-time {
+  color: #ffffff;
+  opacity: 1;
+}
+
+/* Ensure dark mode icon is bright white */
+.mode-icon.dark.active {
+  color: #ffffff;
+  opacity: 1;
+}
+
+/* Ensure the entire event card behaves like a normal container, not a styled link */
+.event-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Ensure all link states stay neutral */
+.event-card-link:visited,
+.event-card-link:hover,
+.event-card-link:focus,
+.event-card-link:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+#searchInput::-webkit-search-cancel-button {
+  display: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+}
+
+#searchInput {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 10px;
+  margin: 0;
+  font-size: inherit;
+  color: inherit;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+#searchButton {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #e3dcdc;
+
+  border: none;
+  outline: none;
+  padding: 10px;
+  margin: 0;
+  font-size: inherit;
+  color: inherit;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+#searchButton:hover {
+  background-color: #cdc4c4;
+  cursor: pointer;
+}
+
+#recommend-div {
+  position: relative;
+  width: 80%;
+  height: auto;
+  overflow: hidden;
+}
+
+#searchEngine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Utility class to hide the sidebar when near the footer */
+.sidebar-hidden-on-footer {
+  display: none !important;
+}
+
+/* Past event card image sizing - only inside #past-events */
+#past-events .past-event-card {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+#past-events .past-event-card img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Ensure same height for upcoming events cards */
+.same-height-card {
+  min-height: 450px;
+}
+
+.same-height-card img {
+  max-height: 100%;
+  object-fit: cover;
+}
+
+/* Ensure both upcoming event cards have equal height and image sizing */
+/* Ensure both upcoming event cards have equal height and image sizing */
+.equal-height-upcoming {
+  height: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Refined: Fill image area and crop appropriately for equal-height-upcoming cards */
+.event-card.equal-height-upcoming img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Highlight active sidebar link */
+.sidebar-nav-link.active {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* === FINAL OVERRIDES FOR COURSE EVENT CARDS === */
+.event-card.course-event-card {
+  position: relative;
+  height: 100px !important;
+  min-height: 100px !important;
+  max-height: 100px !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  overflow: hidden !important;
+  border: 1px solid #eee !important;
+  margin-bottom: 20px !important;
+}
+
+.event-card.course-event-card img {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.event-card.course-event-card .event-card-content {
+  position: static !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important; /* Ensures vertical centering */
+  background: none !important;
+  backdrop-filter: none !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  max-height: 100% !important;
+}
+
+.event-card:hover .event-card-content {
+  display: flex;
+}
+
+.event-card-content h3 {
+  margin-bottom: 4px;
+}
+
+.event-meta {
+  color: #1a1a1a;
+  font-family: "Karla";
+  font-size: 14px;
+  font-weight: 400;
+  padding-top: 0px;
+  margin-top: -4px;
+}
+
+body {
+  cursor: none;
+}
+/* === Custom hover effect for .event-card.course-event-card === */
+.event-card.course-event-card:hover {
+  background-color: #c2c2c290;
+  transition: background-color 0.3s ease;
+}
+
+.event-card.course-event-card:hover img {
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+@media (max-width: 767.98px) {
+  #Event .col-md-2.d-flex.align-items-center.justify-content-center,
+  #Event .col-md-2.d-flex.align-items-center.justify-content-md-center.justify-content-start {
+    justify-content: flex-start !important;
+    padding-left: 1rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .event-card.course-event-card {
+    flex-direction: column !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+  }
+
+  .event-card.course-event-card img {
+    width: 100% !important;
+    height: auto !important;
+    margin-right: 0 !important;
+    margin-bottom: 10px;
+  }
+
+  .event-card.course-event-card .event-card-content {
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+}
+
+
+  .auto-scroll-gallery {
+    display: flex;
+    overflow: hidden;
+    gap: 2rem;
+    animation: scroll-left 60s linear infinite;
+    width: max-content;
+  }
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .scroll-container {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .gallery-item {
+    display: inline-block;
+    text-align: center;
+  }
+
+  .gallery-item img {
+    height: 300px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .gallery-caption {
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-top: 0.5rem;
+  }
+
+
+  .search-section h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.search-container input:focus {
+  outline: none;
+
+}
+
+.custom-search-btn {
+  background: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  color: black !important;
+  cursor: pointer;
+}
+
+.custom-search-btn:hover {
+  color: #555 !important;
+}
+
+input {
+  border: 1px solid #ccc!important;
+  transition: border-color 0.3s ease!important;
+}
+
+input:focus {
+  border-color: #000!important; /* Or your desired color */
+  outline: none!important;
+}
+
+#searchInput:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#searchInput:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: black !important; /* Optional: keep border consistent */
+}

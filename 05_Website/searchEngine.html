@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sarah Cosentino</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+   <!-- Material Design Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link id="favicon" rel="icon" type="image/svg+xml" href="assets/icon.svg">
+  </head>
+  
+  <body>
+    
+  <!-- Navbar from index.html -->
+  <nav class="navbar navbar-expand-md navbar-light fixed-top custom-navbar" >
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/logo.svg" alt="Logo" height="50" class="switch-logo-main">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon switch-hamburger-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+        <div class="mx-auto">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="manifesto.html">What Moves Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="team.html">Who We Are</a></li>
+            <li class="nav-item"><a class="nav-link" href="news.html">Now & Next</a></li>
+            <li class="nav-item"><a class="nav-link" href="matters.html">Mattering</a></li>
+            <li class="nav-item"><a class="nav-link" href="collab.html">Open Grounds</a></li>
+          </ul>
+        </div>
+        <div class="ms-3">
+          <div class="search" id="searchBox">
+            <span class="material-symbols-outlined search-icon" id="searchIcon">search</span>
+            
+          </div>
+        </div>
+    
+      </div>
+    </div>
+  </nav>
+
+  <div class="custom-cursor"></div>
+
+  
+<!-- Search content-->
+<section class="search-section d-flex flex-column align-items-center justify-content-center text-center" style="min-height: 80vh; padding: 0 20px;">
+  <h2 class="mb-4" style="font-weight: 600;">Search in Design Intelligences</h2>
+  <div class="search-container" style="width: 100%; max-width: 700px; position: relative;">
+    <input type="text" id="searchInput" placeholder="Type to search..." 
+           class="form-control form-control-lg px-5" 
+           style="height: 60px; font-size: 18px; border: 1px solid #ccc;">
+<button id="searchButton"
+        class="custom-search-btn"
+        style="position: absolute; top: 50%; right: 20px; transform: translateY(-50%); font-size: 24px;">
+  <span class="material-symbols-outlined">search</span>
+</button>
+  </div>
+  <div id="recommend-div" class="mt-3 text-muted small"></div>
+</section>
+
+<!-- Footer Section -->
+<hr class="footer-divider" style="z-index: 100;"><footer class="container-fluid footer-dark text-white py-5">
+  <div class="row g-4 px-5">
+    <div class="col-12 col-md-3 d-flex flex-column align-items-start">
+      <a href="https://www.polimi.it/" target="_blank" rel="noopener noreferrer">
+        <img src="assets/Polimi.png" alt="Polimi Logo" class="img-fluid mb-3" style="max-width: 150px;">
+      </a>
+      <a href="index.html" target="_blank" rel="noopener noreferrer">
+        <img src="assets/logowhite.svg" alt="Design Intelligences Logo" class="img-fluid" style="max-width: 150px;">
+      </a>
+    </div>
+    <div class="col-12 col-md-3">
+      <nav class="nav flex-column text-start slash-nav">
+        <a class="nav-link text-white" href="manifesto.html">What Moves Us</a>
+        <a class="nav-link text-white" href="news.html">Now & Next</a>
+        <a class="nav-link text-white" href="team.html">Who We Are</a>
+        <a class="nav-link text-white" href="matters.html">Mattering</a>
+        <a class="nav-link text-white" href="collab.html">Open Grounds</a>
+      </nav>
+    </div>
+    <div class="col-12 col-md-3">
+      <p><b>Dipartimento di Design,</b><br><b>POLITECNICO DI MILANO</b></p>
+      <p>Via Durando 10, 20158, Milan, Italy</p>
+      <p><b>CONTACT:</b><br><a href="mailto:designintelligences@polimi.it" class="text-white text-decoration-underline">designintelligences@polimi.it</a></p>
+      <p><b>FOLLOW US</b></p>
+      <div class="d-flex gap-3 align-items-center">
+        <a href="https://www.linkedin.com" target="_blank" class="text-white d-flex align-items-center">
+          <i class="bi bi-linkedin" style="font-size: 1.5rem;"></i>
+        </a>
+        <a href="https://www.instagram.com" target="_blank" class="text-white d-flex align-items-center">
+          <i class="bi bi-instagram" style="font-size: 1.5rem;"></i>
+        </a>
+      </div>
+    </div>
+    <div class="col-12 col-md-3">
+      <p class="caption"><b>&copy;All Rights Reserved</b><br>
+      Nothing on this website may be reproduced or published without the prior written permission of the publisher.</p>
+    </div>
+  </div>
+</footer>
+
+
+
+ <!-- Animation -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000, // animation duration in ms
+    once: true      // animation only once when scrolling down
+  });
+</script>
+
+
+<script>
+  const target = document.getElementById("typewriter");
+  
+  if (target) {
+    const htmlText = "<b>A MORE-THAN-HUMAN</b> COLLECTIVE FOR <i>regenerative futures</i>";
+    let i = 0;
+    let current = "";
+    let isTag = false;
+ 
+    function typeLetterByLetter() {
+      if (i === 0) {
+        target.classList.add("visible");
+      }
+ 
+      if (i < htmlText.length) {
+        current += htmlText[i];
+ 
+        if (htmlText[i] === "<") isTag = true;
+        if (htmlText[i] === ">") isTag = false;
+ 
+        target.innerHTML = current;
+ 
+        i++;
+        setTimeout(typeLetterByLetter, isTag ? 0 : 50);
+      }
+    }
+ 
+    window.addEventListener("DOMContentLoaded", () => {
+      setTimeout(typeLetterByLetter, 1800);
+    });
+  }
+</script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script>
+        function updateTime() {
+          const now = new Date();
+          const formatted = `[${now.toLocaleDateString()}, ${now.toLocaleTimeString()}]`;
+          const timeDesktop = document.getElementById("current-time");
+          if (timeDesktop) timeDesktop.textContent = formatted;
+          const timeMobile = document.getElementById("current-time-mobile");
+          if (timeMobile) timeMobile.textContent = formatted;
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+
+        const cursor = document.querySelector('.custom-cursor');
+        document.addEventListener('mousemove', e => {
+          cursor.style.top = `${e.clientY}px`;
+          cursor.style.left = `${e.clientX}px`;
+        });
+
+        // Optional: add hover class when hovering over links or interactive elements
+        const hoverTargets = document.querySelectorAll('a, button, .nav-link');
+
+        hoverTargets.forEach(el => {
+          el.addEventListener('mouseenter', () => {
+            cursor.classList.add('hover');
+          });
+          el.addEventListener('mouseleave', () => {
+            cursor.classList.remove('hover');
+          });
+        });
+
+        // Hide sidebar under footer and show otherwise (if desired)
+        // (For this sidebar, since it's fixed, you may want to adjust this logic or remove it.)
+    </script>
+    <script>
+      function setTheme(mode) {
+        document.body.classList.toggle('dark-mode', mode === 'dark');
+        document.querySelectorAll('.mode-icon').forEach(icon => icon.classList.remove('active'));
+        // Remove light/dark classes from all icons
+        document.querySelectorAll('.mode-icon').forEach(icon => {
+          icon.classList.remove('light', 'dark');
+        });
+        // Add both 'active' and mode class to the selected icon
+        const activeIcon = document.querySelector(`.mode-icon.${mode}`);
+        if (activeIcon) {
+          activeIcon.classList.add('active');
+          activeIcon.classList.add(mode);
+        }
+
+        const logo = document.querySelector('.switch-logo');
+        if (logo) {
+          logo.src = mode === 'dark' ? 'assets/logowhite.svg' : 'assets/logo.svg';
+        }
+
+        const logoMaDe = document.querySelector('.switch-logo-made');
+        if (logoMaDe) {
+          logoMaDe.src = mode === 'dark' ? 'assets/madewhite.png' : 'assets/MaDe.png';
+        }
+
+        const logoDeib = document.querySelector('.switch-logo-deib');
+        if (logoDeib) {
+          logoDeib.src = mode === 'dark' ? 'assets/deibwhite.png' : 'assets/Deib.png';
+        }
+        // Switch navbar main logo
+        const logoMain = document.querySelector('.switch-logo-main');
+        if (logoMain) {
+          logoMain.src = mode === 'dark' ? 'assets/logowhite.png' : 'assets/logo.svg';
+        }
+      }
+    </script>
+  
+    
+
+      </style>
+  
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const searchIcon = document.getElementById('searchIcon');
+    if (searchIcon) {
+      searchIcon.addEventListener('click', function () {
+        window.location.href = 'searchEngine.html';
+      });
+    }
+  });
+</script></body>
+</html>
